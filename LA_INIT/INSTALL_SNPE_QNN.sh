@@ -57,5 +57,5 @@ adb shell chmod -R +x $TARGET_QNN_BIN
 # Test Componets
 # Test SNPE with Platform validator
 adb shell "export ADSP_LIBRARY_PATH=\"${SNPE_ADSP_LIBRARY_PATH}\" && LD_LIBRARY_PATH=\"${SNPE_LD_LIBRARY_PATH}\" ./${TARGET_SNPE_BIN}/snpe-platform-validator --runtime all"
-adb shell "export ADSP_LIBRARY_PATH=\"${QNN_ADSP_LIBRARY_PATH}\" && LD_LIBRARY_PATH=\"${QNN_LD_LIBRARY_PATH}\" ./${TARGET_QNN_BIN}/qnn-platform-validator --backend all --directory ${TARGET_QNN_DIR} --dsp_type ${TARGET_HEXAGON_ARCH}"
+adb shell "export ADSP_LIBRARY_PATH=\"${QNN_ADSP_LIBRARY_PATH}\" && LD_LIBRARY_PATH=\"${QNN_LD_LIBRARY_PATH}\" ./${TARGET_QNN_BIN}/qnn-platform-validator"
 
