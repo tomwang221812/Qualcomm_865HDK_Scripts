@@ -23,13 +23,14 @@ export TARGET_QNN_LIBS="${TARGET_QNN_DIR}/target/${TARGET_ARCH}-${TARGET_OS}/lib
 export TARGET_QNN_HEXAGON_LIBS="${TARGET_QNN_DIR}/target/hexagon-${TARGET_HEXAGON_ARCH}/lib"
 
 # Define and overwrite LIBRARY_PATH
-export TARGET_DSP_LIBS="/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;/vendor/dsp;/system/vendor/lib64"
+export TARGET_ADSP_LIBS="/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;/vendor/dsp;/system/vendor/lib64"
+export TARGET_LD_LIBS="/system/lib/rfsa/adsp:/system/vendor/lib/rfsa/adsp:/vendor/dsp:/system/vendor/lib64"
 
-export SNPE_ADSP_LIBRARY_PATH="${TARGET_SNPE_LIBS};${TARGET_SNPE_DSP_LIBS};${TARGET_DSP_LIBS}"
-export QNN_ADSP_LIBRARY_PATH="${TARGET_QNN_LIBS};${TARGET_QNN_HEXAGON_LIBS};${TARGET_DSP_LIBS}"
+export SNPE_ADSP_LIBRARY_PATH="${TARGET_SNPE_LIBS};${TARGET_SNPE_DSP_LIBS};${TARGET_ADSP_LIBS}"
+export QNN_ADSP_LIBRARY_PATH="${TARGET_QNN_LIBS};${TARGET_QNN_HEXAGON_LIBS};${TARGET_ADSP_LIBS}"
 
-export SNPE_LD_LIBRARY_PATH="${TARGET_SNPE_LIBS}:${TARGET_SNPE_DSP_LIBS}:${TARGET_DSP_LIBS}"
-export QNN_LD_LIBRARY_PATH="${TARGET_QNN_LIBS}:${TARGET_QNN_HEXAGON_LIBS}:${TARGET_DSP_LIBS}"
+export SNPE_LD_LIBRARY_PATH="${TARGET_SNPE_LIBS}:${TARGET_SNPE_DSP_LIBS}:${TARGET_LD_LIBS}"
+export QNN_LD_LIBRARY_PATH="${TARGET_QNN_LIBS}:${TARGET_QNN_HEXAGON_LIBS}:${TARGET_LD_LIBS}"
 
 # Run adb as root and enable read write
 adb wait-for-device
