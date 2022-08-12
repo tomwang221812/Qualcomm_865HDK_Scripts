@@ -23,8 +23,8 @@ export TARGET_QNN_LIBS="${TARGET_QNN_DIR}/target/${TARGET_ARCH}-${TARGET_OS}/lib
 export TARGET_QNN_HEXAGON_LIBS="${TARGET_QNN_DIR}/target/hexagon-${TARGET_HEXAGON_ARCH}/lib/unsigned"
 
 # Define and overwrite LIBRARY_PATH
-export TARGET_ADSP_LIBS="/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;/vendor/dsp;/system/vendor/lib64"
-export TARGET_LD_LIBS="/system/lib/rfsa/adsp:/system/vendor/lib/rfsa/adsp:/vendor/dsp:/system/vendor/lib64"
+export TARGET_ADSP_LIBS="/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;/vendor/dsp;/system/vendor/lib64;/vendor/lib/rfsa/adsp"
+export TARGET_LD_LIBS="/system/lib/rfsa/adsp:/system/vendor/lib/rfsa/adsp:/vendor/dsp:/system/vendor/lib64:/vendor/lib/rfsa/adsp"
 
 export SNPE_ADSP_LIBRARY_PATH="${TARGET_SNPE_LIBS};${TARGET_SNPE_DSP_LIBS};${TARGET_ADSP_LIBS}"
 export QNN_ADSP_LIBRARY_PATH="${TARGET_QNN_LIBS};${TARGET_QNN_HEXAGON_LIBS};${TARGET_ADSP_LIBS}"
