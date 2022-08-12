@@ -22,6 +22,11 @@ export TARGET_SNPE_DSP_LIBS="${TARGET_SNPE_DIR}/dsp"
 export TARGET_QNN_LIBS="${TARGET_QNN_DIR}/target/${TARGET_ARCH}-${TARGET_OS}/lib"
 export TARGET_QNN_HEXAGON_LIBS="${TARGET_QNN_DIR}/target/hexagon-${TARGET_HEXAGON_ARCH}/lib"
 
+# Define and overwrite ADSP_LIBRARY_PATH for SNPE
+export TARGET_DSP_LIBS="/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;/vendor/dsp;/system/vendor/lib64"
+export SNPE_LIBRARY_PATH="${TARGET_SNPE_LIBS};${TARGET_SNPE_DSP_LIBS};${TARGET_DSP_LIBS}"
+export QNN_LIBRARY_PATH="${TARGET_QNN_LIBS};${TARGET_QNN_HEXAGON_LIBS};${TARGET_DSP_LIBS}"
+
 # Run adb as root and enable read write
 adb wait-for-device
 adb root
@@ -46,5 +51,6 @@ adb shell chmod -R +x $TARGET_QNN_BIN
 
 # Test Componets
 # Test SNPE with Platform validator
-adb shell "ADSP_LIBRARY_PATH=${TARGET_SNPE_LIBS}:${TARGET_SNPE_DSP_LIBS} LD_LIBRARY_PATH=${TARGET_SNPE_LIBS}:${TARGET_SNPE_DSP_LIBS} ./${TARGET_SNPE_BIN}/snpe-platform-validator --runtime all"
+adb shell "ADSP_LIBRARY_PATH=${SNPE_LIBRARY_PATH} LD_LIBRARY_PATH=${SNPE_LIBRARY_PATH} ./${TARGET_SNPE_BIN}/snpe-platform-validator --runtime all"
+adb shell "ADSP_LIBRARY_PATH=${QNN_LIBRARY_PATH} LD_LIBRARY_PATH=${QNN_LIBRARY_PATH} ./${TARGET_QNN_BIN}/qnn-platform-validator --backend all --directory ${TARGET_QNN_DIR} --dsp_type ${TARGET_HEXAGON_ARCH}"
 
