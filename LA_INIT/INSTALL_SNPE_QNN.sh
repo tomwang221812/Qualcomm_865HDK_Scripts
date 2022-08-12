@@ -20,7 +20,7 @@ export TARGET_QNN_BIN="${TARGET_QNN_DIR}/target/${TARGET_ARCH}-${TARGET_OS}/bin"
 export TARGET_SNPE_LIBS="${TARGET_SNPE_DIR}/lib/${TARGET_ARCH}-${TARGET_OS}-${TARGET_COMPILER}"
 export TARGET_SNPE_DSP_LIBS="${TARGET_SNPE_DIR}/lib/dsp"
 export TARGET_QNN_LIBS="${TARGET_QNN_DIR}/target/${TARGET_ARCH}-${TARGET_OS}/lib"
-export TARGET_QNN_HEXAGON_LIBS="${TARGET_QNN_DIR}/target/hexagon-${TARGET_HEXAGON_ARCH}/lib"
+export TARGET_QNN_HEXAGON_LIBS="${TARGET_QNN_DIR}/target/hexagon-${TARGET_HEXAGON_ARCH}/lib/unsigned"
 
 # Define and overwrite LIBRARY_PATH
 export TARGET_ADSP_LIBS="/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;/vendor/dsp;/system/vendor/lib64"
