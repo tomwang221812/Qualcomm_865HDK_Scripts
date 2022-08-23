@@ -1,1 +1,1 @@
-# Qualcomm_RB5_Scripts
+# Qualcomm_865HDK_Scripts
