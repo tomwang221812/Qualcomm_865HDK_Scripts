@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export SNPE_DIR='/home/north/snpe-1.64.0.3605'
-export QNN_DIR='/home/north/qnn-v1.16.0.220808064918_38359'
+export SNPE_DIR='${HOME}/snpe-1.65.0.3676'
+export QNN_DIR='${HOME}qnn-v1.16.0.220808064918_38359'
 
 # Define binary architeture, OS and hexagon architeture
 export TARGET_ARCH='aarch64'
